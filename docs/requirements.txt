@@ -3,3 +3,10 @@
 # under `install_requires` in `setup.cfg` is also listed here!
 sphinx>=3.2.1
 # sphinx_rtd_theme
+scaffold
+setuptools
+wheel
+ffmpeg-python
+pytube
+opencv-python
+moviepy
