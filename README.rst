@@ -1,3 +1,4 @@
+
 .. These are examples of badges you might want to add to your README:
    please update the URLs accordingly
 
@@ -48,10 +49,6 @@ Note
 This project has been set up using PyScaffold 4.1.1. For details and usage
 information on PyScaffold see https://pyscaffold.org/.
 
-## Table of contents
-* [General info](#general-info)
-* [Technologies](#technologies)
-* [Setup](#setup)
 
 ## General info
 This project aim is to provide user a tool to download video files from YouTube.
@@ -75,3 +72,4 @@ To run this project, install all the packages by using:
 $ cd ../docs
 $ pip install -r requirements.txt
 ```
+
