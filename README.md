@@ -15,6 +15,7 @@
 
 ## General Information
 FATube is a tool for downloading and processing videos from YouTube.
+
 It aim is to ease the process of preparing datasets for machine learning algorithms.
 
 
