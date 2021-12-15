@@ -13,7 +13,7 @@ args = vars(ap.parse_args())
 def save_frames(path_to_video, color = False):
     cap = cv2.VideoCapture(path_to_video)
     current_frame = 0
-    frames_path = '/'.join(path_to_video.split('\\')[:-1]) + '/frames'
+    frames_path = '/'.join(path_to_video.split('\\')[:-1]) + '/FRAMES'
     if not path.exists(frames_path):
         os.mkdir(frames_path)
     while cap.isOpened():

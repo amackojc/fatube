@@ -39,12 +39,12 @@ class YouTubeVideo:
         videos = self.youtube_video.streams.filter(resolution=video_resolution)
         if video_resolution is not None:
             if not check_empty_list_of_candidates(videos):
-                prepare_place_for_download(VIDEO_DIRECTORY)
+                prepare_place_for_download(VIDEO_DIRECTORY, self.youtube_id)
                 download_specific_video(self, videos, video_resolution)
                 os.chdir(WORKSPACE)
         else:
             print("Downloading...")
-            prepare_place_for_download(VIDEO_DIRECTORY)
+            prepare_place_for_download(VIDEO_DIRECTORY, self.youtube_id)
             download_specific_video(self, videos, DEFAULT_RESOLUTION)
             os.chdir(WORKSPACE)
             print("Done!")
@@ -58,7 +58,7 @@ class YouTubeVideo:
             if (not check_empty_list_of_candidates(audios)
                 and check_bitrate_in_candidates(audios, average_bitrate)):
                 print("Downloading...")
-                prepare_place_for_download(AUDIO_DIRECTORY)
+                prepare_place_for_download(AUDIO_DIRECTORY, self.youtube_id)
                 audios.filter(abr=average_bitrate)[0] \
                       .download(
                           filename=self.get_video_title() +
@@ -69,7 +69,7 @@ class YouTubeVideo:
         else:
             highest_birate = str(get_highest_audio_quality(audios)) + 'kbps'
             print("Downloading...")
-            prepare_place_for_download(AUDIO_DIRECTORY)
+            prepare_place_for_download(AUDIO_DIRECTORY, self.youtube_id)
             audios.filter(abr=highest_birate)[0] \
                   .download(
                       filename=self.get_video_title() +
@@ -88,13 +88,13 @@ class YouTubeVideo:
         if video_resolution is not None:
             if not check_empty_list_of_candidates(videos):
                 print("Downloading...")
-                prepare_place_for_download(VIDEO_AND_AUDIO_DIRECTORY)
+                prepare_place_for_download(VIDEO_AND_AUDIO_DIRECTORY, self.youtube_id)
                 download_specific_video(self, videos, video_resolution)
                 os.chdir(WORKSPACE)
                 print("Done!")
         else:
             print("Downloading...")
-            prepare_place_for_download(VIDEO_AND_AUDIO_DIRECTORY)
+            prepare_place_for_download(VIDEO_AND_AUDIO_DIRECTORY, self.youtube_id)
             videos.get_highest_resolution() \
                   .download(
                       filename=self.get_video_title() +
@@ -113,7 +113,6 @@ class YouTubeVideo:
 
 
 if __name__ == '__main__':
-    EXAMPLE_ID = '-mdv2wf8yQ8'
     k = YouTubeVideo(args['input'], VIDEO_FORMAT)
     print(k.get_video_title())
     print(k.get_video_duration())
