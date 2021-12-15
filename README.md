@@ -1,5 +1,5 @@
-# Project Name
-> Outline a brief description of your project.
+# FATube
+> FATube is a tool for downloading and processing videos from YouTube.
 
 
 ## Table of Contents
@@ -9,32 +9,27 @@
 * [Screenshots](#screenshots)
 * [Setup](#setup)
 * [Usage](#usage)
-* [Project Status](#project-status)
 * [Room for Improvement](#room-for-improvement)
-* [Acknowledgements](#acknowledgements)
-* [Contact](#contact)
 <!-- * [License](#license) -->
 
 
 ## General Information
-- Provide general information about your project here.
-- What problem does it (intend to) solve?
-- What is the purpose of your project?
-- Why did you undertake it?
-<!-- You don't have to answer all the questions - just the ones relevant to your project. -->
+FATube is a tool for downloading and processing videos from YouTube.
+It aim is to ease the process of preparing datasets for machine learning algorithms.
 
 
 ## Technologies Used
-- Tech 1 - version 1.0
-- Tech 2 - version 2.0
-- Tech 3 - version 3.0
+- Python 3
+- PyTube
+- MoviePy
+- OpenCV
 
 
 ## Features
-List the ready features here:
-- Awesome feature 1
-- Awesome feature 2
-- Awesome feature 3
+- Automatic creation of folder structure
+- Choice of download type (video with audio / video without audio / only audio)
+- Saving frames of video (in color or gray format)
+- Cutting videos
 
 
 ## Screenshots
@@ -55,10 +50,6 @@ Provide various use cases and code examples here.
 `write-your-code-here`
 
 
-## Project Status
-Project is: _in progress_ / _complete_ / _no longer being worked on_. If you are no longer working on it, provide reasons why.
-
-
 ## Room for Improvement
 Include areas you believe need improvement / could be improved. Also add TODOs for future development.
 
@@ -69,17 +60,6 @@ Room for improvement:
 To do:
 - Feature to be added 1
 - Feature to be added 2
-
-
-## Acknowledgements
-Give credit here.
-- This project was inspired by...
-- This project was based on [this tutorial](https://www.example.com).
-- Many thanks to...
-
-
-## Contact
-Created by [@flynerdpl](https://www.flynerd.pl/) - feel free to contact me!
 
 
 <!-- Optional -->
