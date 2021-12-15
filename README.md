@@ -56,7 +56,7 @@ To install them use:
 
 #### Download video with audio in resolution of 480p.
 
-`main.py -i xcJtL7QggTI -res 480p`
+`python main.py -i xcJtL7QggTI -res 480p`
 
 #### Download video without audio in default resolution.
 
