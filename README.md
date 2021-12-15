@@ -56,21 +56,22 @@ To install them use:
 
 #### Download video with audio in resolution of 480p.
 
-`python main.py -i xcJtL7QggTI -res 480p`
+`python main.py -i <youtbue_id> -res 480p`
 
 #### Download video without audio in default resolution.
 
-`python main.py -i xcJtL7QggTI -v`
+`python main.py -i <youtbue_id> -v`
 
 #### Download audio in bitrate of 128kbps.
 
-`python main.py -i xcJtL7QggTI -a -b 128`
+`python main.py -i <youtbue_id> -a -b 128`
 
 
 
 
 ## Room for Improvement
 - Downloading many videos based on their ID's stored in single .txt file
+- Create few others flags for better functionality
 
 <!-- Optional -->
 <!-- ## License -->
