@@ -1,6 +1,15 @@
+import pathlib
+import os
 
-def prepare_directory(current_path):
-    pass
+def prepare_directory(folder_name):
+    pathlib.Path(f'{folder_name}').mkdir(
+                                    parents=True,
+                                    exist_ok=True
+                                    )
+
+def prepare_place_for_download(directory_output):
+    prepare_directory(directory_output)
+    os.chdir(directory_output)
 
 def get_highest_audio_quality(yt_audio):
     list_of_qualities = [int(audio.abr.replace("kbps", "")) for audio in yt_audio]

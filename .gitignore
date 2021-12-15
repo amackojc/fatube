@@ -54,6 +54,6 @@ MANIFEST
 
 # New created folders
 frames/*
-VIDEOS/*
-AUDIO/*
-VIDEO_AUDIO/*
+**/VIDEOS/*
+**/AUDIO/*
+**/VIDEO_AUDIO/*

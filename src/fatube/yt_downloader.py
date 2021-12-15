@@ -18,6 +18,9 @@ WORKSPACE = os.getcwd()
 YOUTUBE_URL = 'https://www.youtube.com/watch?v='
 VIDEO_FORMAT = 'mp4'
 DEFAULT_RESOLUTION = '480p'
+VIDEO_DIRECTORY='VIDEOS'
+AUDIO_DIRECTORY='AUDIO'
+VIDEO_AND_AUDIO_DIRECTORY='VIDEO_AUDIO'
 
 
 class YouTubeVideo:
@@ -36,10 +39,14 @@ class YouTubeVideo:
         videos = self.youtube_video.streams.filter(resolution=video_resolution)
         if video_resolution is not None:
             if not check_empty_list_of_candidates(videos):
+                prepare_place_for_download(VIDEO_DIRECTORY)
                 download_specific_video(self, videos, video_resolution)
+                os.chdir(WORKSPACE)
         else:
             print("Downloading...")
+            prepare_place_for_download(VIDEO_DIRECTORY)
             download_specific_video(self, videos, DEFAULT_RESOLUTION)
+            os.chdir(WORKSPACE)
             print("Done!")
 
     def download_audio(self, average_bitrate=None):
@@ -51,20 +58,24 @@ class YouTubeVideo:
             if (not check_empty_list_of_candidates(audios)
                 and check_bitrate_in_candidates(audios, average_bitrate)):
                 print("Downloading...")
+                prepare_place_for_download(AUDIO_DIRECTORY)
                 audios.filter(abr=average_bitrate)[0] \
                       .download(
                           filename=self.get_video_title() +
                           f'_{average_bitrate}.mp3'
                       )
+                os.chdir(WORKSPACE)
                 print("Done!")
         else:
             highest_birate = str(get_highest_audio_quality(audios)) + 'kbps'
             print("Downloading...")
+            prepare_place_for_download(AUDIO_DIRECTORY)
             audios.filter(abr=highest_birate)[0] \
                   .download(
                       filename=self.get_video_title() +
                       f'_{highest_birate}.mp3'
                   )
+            os.chdir(WORKSPACE)
             print("Done!")
 
     def download_video_with_audio(self, video_resolution=None):
@@ -76,14 +87,20 @@ class YouTubeVideo:
                                     )
         if video_resolution is not None:
             if not check_empty_list_of_candidates(videos):
+                print("Downloading...")
+                prepare_place_for_download(VIDEO_AND_AUDIO_DIRECTORY)
                 download_specific_video(self, videos, video_resolution)
+                os.chdir(WORKSPACE)
+                print("Done!")
         else:
             print("Downloading...")
+            prepare_place_for_download(VIDEO_AND_AUDIO_DIRECTORY)
             videos.get_highest_resolution() \
                   .download(
                       filename=self.get_video_title() +
                       f'_{videos.get_highest_resolution().resolution}.{VIDEO_FORMAT}'
                   )
+            os.chdir(WORKSPACE)
             print("Done!")
 
     def get_video_title(self):
