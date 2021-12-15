@@ -52,10 +52,20 @@ To install them use:
 
 
 ## Usage
-How does one go about using it?
-Provide various use cases and code examples here.
+### Examples of usage:
 
-`write-your-code-here`
+#### Download video with audio in resolution of 480p.
+
+`main.py -i xcJtL7QggTI -res 480p`
+
+#### Download video without audio in default resolution.
+
+`python main.py -i xcJtL7QggTI -v`
+
+#### Download audio in bitrate of 128kbps.
+
+`python main.py -i xcJtL7QggTI -a -b 128`
+
 
 
 ## Room for Improvement
