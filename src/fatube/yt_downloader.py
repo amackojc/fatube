@@ -1,10 +1,17 @@
 #!/usr/bin/python
-
+import argparse
 import os
 import datetime
 
 from pytube import YouTube
 from helpers.DownloaderHelpers import *
+
+ap = argparse.ArgumentParser()
+ap.add_argument("-i", "--input", required=True,
+                help="video ID")
+ap.add_argument("-a", "--audio", help="download audio only", action='store_true')
+ap.add_argument("-v", "--video", help="download video only", action='store_true')
+args = vars(ap.parse_args())
 
 WORKSPACE = os.getcwd()
 
@@ -90,7 +97,12 @@ class YouTubeVideo:
 
 if __name__ == '__main__':
     EXAMPLE_ID = '-mdv2wf8yQ8'
-    k = YouTubeVideo(EXAMPLE_ID, VIDEO_FORMAT)
+    k = YouTubeVideo(args['input'], VIDEO_FORMAT)
     print(k.get_video_title())
     print(k.get_video_duration())
-    k.download_audio()
+    if args['audio']:
+        k.download_audio()
+    elif args['video']:
+        k.download_video()
+    else:
+        k.download_video_with_audio()
