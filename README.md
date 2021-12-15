@@ -29,6 +29,7 @@ It aim is to ease the process of preparing datasets for machine learning algorit
 ## Features
 - Automatic creation of folder structure
 - Choice of download type (video with audio / video without audio / only audio)
+- Choice of resolution, in which video should be downloaded 
 - Saving frames of video (in color or gray format)
 - Cutting videos
 
