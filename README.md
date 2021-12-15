@@ -33,14 +33,19 @@ It aim is to ease the process of preparing datasets for machine learning algorit
 
 
 ## Screenshots
-![Example screenshot](./img/screenshot.png)
+Example folder structure after usage.
+
+![Example screenshot](/docs/screenshots/example_folder_structure.PNG?raw=true)
 <!-- If you have screenshots you'd like to share, include them here. -->
 
 
 ## Setup
-What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
+To run the program you need to install required packages.
+All of them are listed in docs/requirements.txt
+To install them use:
 
-Proceed to describe how to install / setup one's local environment / get started with the project.
+`pip install -r requirements.txt`
+
 
 
 ## Usage
@@ -51,16 +56,7 @@ Provide various use cases and code examples here.
 
 
 ## Room for Improvement
-Include areas you believe need improvement / could be improved. Also add TODOs for future development.
-
-Room for improvement:
-- Improvement to be done 1
-- Improvement to be done 2
-
-To do:
-- Feature to be added 1
-- Feature to be added 2
-
+- Downloading many videos based on their ID's stored in single .txt file
 
 <!-- Optional -->
 <!-- ## License -->
