@@ -1,5 +1,4 @@
 #!/usr/bin/python
-import argparse
 import os
 import datetime
 
@@ -11,9 +10,9 @@ WORKSPACE = os.getcwd()
 YOUTUBE_URL = 'https://www.youtube.com/watch?v='
 VIDEO_FORMAT = 'mp4'
 DEFAULT_RESOLUTION = '480p'
-VIDEO_DIRECTORY='VIDEOS'
-AUDIO_DIRECTORY='AUDIO'
-VIDEO_AND_AUDIO_DIRECTORY='VIDEO_AUDIO'
+VIDEO_DIRECTORY = 'VIDEOS'
+AUDIO_DIRECTORY = 'AUDIO'
+VIDEO_AND_AUDIO_DIRECTORY = 'VIDEO_AUDIO'
 
 
 class YouTubeVideo:
@@ -34,14 +33,24 @@ class YouTubeVideo:
                                             only_video=True)
         if video_resolution is not None:
             if not YTHelper.check_empty_list_of_candidates(videos):
-                YTHelper.prepare_place_for_download(VIDEO_DIRECTORY, self.youtube_id)
+                YTHelper.prepare_place_for_download(
+                        VIDEO_DIRECTORY,
+                        self.youtube_id
+                )
                 print("Downloading...")
-                YTHelper.download_specific_video(self, videos, video_resolution)
+                YTHelper.download_specific_video(
+                        self,
+                        videos,
+                        video_resolution
+                )
                 os.chdir(WORKSPACE)
                 print("Done!")
         else:
             print("Downloading...")
-            YTHelper.prepare_place_for_download(VIDEO_DIRECTORY, self.youtube_id)
+            YTHelper.prepare_place_for_download(
+                    VIDEO_DIRECTORY,
+                    self.youtube_id
+            )
             YTHelper.download_specific_video(self, videos, DEFAULT_RESOLUTION)
             os.chdir(WORKSPACE)
             print("Done!")
@@ -53,9 +62,14 @@ class YouTubeVideo:
             average_bitrate = average_bitrate + 'kbps'
 
             if (not YTHelper.check_empty_list_of_candidates(audios)
-                and YTHelper.check_bitrate_in_candidates(audios, average_bitrate)):
+               and YTHelper.check_bitrate_in_candidates(
+                        audios,
+                        average_bitrate)):
                 print("Downloading...")
-                YTHelper.prepare_place_for_download(AUDIO_DIRECTORY, self.youtube_id)
+                YTHelper.prepare_place_for_download(
+                        AUDIO_DIRECTORY,
+                        self.youtube_id
+                )
                 audios.filter(abr=average_bitrate)[0] \
                       .download(
                           filename=self.get_video_title() +
@@ -64,9 +78,14 @@ class YouTubeVideo:
                 os.chdir(WORKSPACE)
                 print("Done!")
         else:
-            highest_birate = str(YTHelper.get_highest_audio_quality(audios)) + 'kbps'
+            highest_birate = str(
+                                YTHelper.get_highest_audio_quality(audios)) + \
+                                'kbps'
             print("Downloading...")
-            YTHelper.prepare_place_for_download(AUDIO_DIRECTORY, self.youtube_id)
+            YTHelper.prepare_place_for_download(
+                    AUDIO_DIRECTORY,
+                    self.youtube_id
+            )
             audios.filter(abr=highest_birate)[0] \
                   .download(
                       filename=self.get_video_title() +
@@ -84,13 +103,23 @@ class YouTubeVideo:
                                     )
         if video_resolution is not None:
             if not YTHelper.check_empty_list_of_candidates(videos):
-                YTHelper.prepare_place_for_download(VIDEO_AND_AUDIO_DIRECTORY, self.youtube_id)
+                YTHelper.prepare_place_for_download(
+                        VIDEO_AND_AUDIO_DIRECTORY,
+                        self.youtube_id
+                )
                 print("Downloading...")
-                YTHelper.download_specific_video(self, videos, video_resolution)
+                YTHelper.download_specific_video(
+                        self,
+                        videos,
+                        video_resolution
+                )
                 os.chdir(WORKSPACE)
                 print("Done!")
         else:
-            YTHelper.prepare_place_for_download(VIDEO_AND_AUDIO_DIRECTORY, self.youtube_id)
+            YTHelper.prepare_place_for_download(
+                    VIDEO_AND_AUDIO_DIRECTORY,
+                    self.youtube_id
+            )
             print("Downloading...")
             videos.get_highest_resolution() \
                   .download(
@@ -107,4 +136,3 @@ class YouTubeVideo:
     def get_video_duration(self):
         """Returns duration on YT video"""
         return str(datetime.timedelta(seconds=self.youtube_video.length))
-
