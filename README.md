@@ -56,16 +56,19 @@ To install them use:
 
 #### Download video with audio in resolution of 480p.
 
-`python main.py -i <youtbue_id> -res 480p`
+`python main.py --input <youtbue_id> --resolution 480p`
 
 #### Download video without audio in default resolution.
 
-`python main.py -i <youtbue_id> -v`
+`python main.py --input <youtbue_id> --video`
 
 #### Download audio in bitrate of 128kbps.
 
-`python main.py -i <youtbue_id> -a -b 128`
+`python main.py --input <youtbue_id> --audio --bitrate 128`
 
+#### Extract all frames from specific video
+
+`python main.py --input <path_to_video_file> --frames`
 
 
 
