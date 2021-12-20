@@ -3,6 +3,7 @@ from pytube.exceptions import VideoUnavailable
 
 import src.fatube.yt_downloader as YT
 from src.fatube.frames import save_frames
+from src.fatube.video_cut import cut_video
 
 ap = argparse.ArgumentParser()
 ap.add_argument(
@@ -48,6 +49,18 @@ ap.add_argument(
             help="Extracting frames from specific video",
             action='store_true'
 )
+ap.add_argument(
+            "-s",
+            "--start",
+            help="start of slice",
+            action='store',
+)
+ap.add_argument(
+            "-e",
+            "--end",
+            help="end of slice",
+            action='store',
+)
 args = vars(ap.parse_args())
 
 if __name__ == '__main__':
@@ -74,3 +87,5 @@ if __name__ == '__main__':
         path_to_video = args['input']
         if args['frames']:
             save_frames(args['input'])
+        elif args['start'] and args['end']:
+            cut_video(args['input'], int(args['start']), int(args['end']))
