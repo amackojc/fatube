@@ -47,8 +47,19 @@ To run the program you need to install required packages.
 All of them are listed in docs/requirements.txt
 To install them use:
 
-`pip install -r requirements.txt`
+`pip install -r docs/requirements.txt`
 
+And you can use everyhing "from your finger"
+
+or you can build it using PyScaffold
+
+1. Prepare your virtual enviroment using [virtualenv](https://docs.python.org/3/library/venv.html)
+2. Install requirements using `pip install -e .`
+3. Build documenation `tox -e docs`
+4. Build packages `tox -e build`
+5. Run tests in prepared enviroment `tox`
+
+After this few points your enviroment will be fully prepared to use every script
 
 
 ## Usage
