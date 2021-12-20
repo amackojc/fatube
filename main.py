@@ -52,13 +52,13 @@ ap.add_argument(
 ap.add_argument(
             "-s",
             "--start",
-            help="start of slice",
+            help="Slicing video -> start parameter <seconds>",
             action='store',
 )
 ap.add_argument(
             "-e",
             "--end",
-            help="end of slice",
+            help="Slicing video -> end parameter <second>",
             action='store',
 )
 ap.add_argument(

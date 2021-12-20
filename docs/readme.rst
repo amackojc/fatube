@@ -1,2 +1,4 @@
+Readme File
+===========
 .. _readme:
-.. include:: ../README.rst
+.. include:: ../README.md
