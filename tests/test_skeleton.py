@@ -1,5 +1,6 @@
 import pytest
 
+from fatube.yt_downloader import YouTubeVideo
 from fatube.skeleton import fib, main
 
 __author__ = "Aleksander Mackojć"
@@ -14,6 +15,10 @@ def test_fib():
     assert fib(7) == 13
     with pytest.raises(AssertionError):
         fib(-10)
+
+def test_YT_duration_time():
+    YT_test = YouTubeVideo('oC3fhUjg30E','mp4')
+    assert YT_test.get_video_duration() == '1:52:47'
 
 
 def test_main(capsys):
