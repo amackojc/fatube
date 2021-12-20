@@ -66,10 +66,21 @@ To install them use:
 
 `python main.py --input <youtbue_id> --audio --bitrate 128`
 
+#### Get Youtube video duration time
+
+`python main.py --input <youtbue_id> --get_duration`
+
+#### Get Youtube video title
+
+`python main.py --input <youtbue_id> --get_title`
+
 #### Extract all frames from specific video
 
 `python main.py --input <path_to_video_file> --frames`
 
+#### Cut the video clip
+
+`python main.py --input <path_to_video_file> --start <seconds> --end <seconds>`
 
 
 ## Room for Improvement
