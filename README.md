@@ -96,7 +96,7 @@ After this few points your enviroment will be fully prepared to use every script
 
 ## Room for Improvement
 - Downloading many videos based on their ID's stored in single .txt file
-- Create few others flags for better functionality
+- Create few others flags for better functionality (for exmaple: color video choice)
 
 <!-- Optional -->
 <!-- ## License -->
