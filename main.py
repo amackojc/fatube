@@ -61,13 +61,25 @@ ap.add_argument(
             help="end of slice",
             action='store',
 )
+ap.add_argument(
+            "-g",
+            "--get_title",
+            help="Get Youtube video title",
+            action='store_true'
+)
+ap.add_argument(
+            "-d",
+            "--get_duration",
+            help="Get Youtube video duration in format hh:mm:ss",
+            action='store_true'
+)
 args = vars(ap.parse_args())
 
 if __name__ == '__main__':
     try:
         k = YT.YouTubeVideo(args['input'], YT.VIDEO_FORMAT)
-        print(k.get_video_title())
-        print(k.get_video_duration())
+        #print(k.get_video_title())
+        #print(k.get_video_duration())
         if args['audio'] and args['bitrate']:
             k.download_audio(args['bitrate'])
         elif args['audio']:
@@ -81,6 +93,10 @@ if __name__ == '__main__':
             k.download_video()
         elif args['video_and_audio'] and args['resolution']:
             k.download_video_with_audio(args['resolution'])
+        elif args['get_title']:
+            print(k.get_video_title())
+        elif args['get_duration']:
+            print(k.get_video_duration())
         else:
             k.download_video_with_audio()
     except (VideoUnavailable, NotADirectoryError) as e:
